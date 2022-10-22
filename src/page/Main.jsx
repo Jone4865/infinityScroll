@@ -41,7 +41,7 @@ const Main = () => {
   return (
     <div>
       <Search>
-        <div><button onClick={() => { FocusInputRef(); }}><CiSearch /></button><input value={keyword} ref={InputRef} placeholder="검색어를 입력하세요." onChange={(e) => { setKeyword(e.target.value); setItems([]); }} /></div>
+        <div><button onClick={() => { FocusInputRef(); }}><CiSearch /></button><input value={keyword} ref={InputRef} placeholder="검색어를 입력하세요." onChange={(e) => { setKeyword(e.target.value); setItems([]); setPage(0); }} /></div>
       </Search>
       {items?.map((item) => (
         <ItemBody key={item.id} onClick={() => { navigate(`/${item.id}`) }}>
