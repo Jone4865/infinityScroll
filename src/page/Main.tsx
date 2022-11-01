@@ -6,12 +6,12 @@ import { CiSearch } from "react-icons/ci"
 import { useNavigate } from "react-router-dom";
 
 const Main = () => {
-  const [items, setItems] = useState([]);
-  const [page, setPage] = useState(0);
-  const [keyword, setKeyword] = useState("");
+  const [items, setItems] = useState<any>([]);
+  const [page, setPage] = useState<any>(0);
+  const [keyword, setKeyword] = useState<any>("");
   const [ref, inView] = useInView();
 
-  const InputRef = useRef(null);
+  const InputRef = useRef<any>(null);
   const FocusInputRef = () => {
     InputRef.current.focus();
   }
@@ -46,7 +46,7 @@ const Main = () => {
       {items?.map((item) => (
         <ItemBody key={item.id} onClick={() => { navigate(`/${item.id}`) }}>
           <div>
-            <div style={{ fontWeight: "bold" }}><span style={{ color: "blue", alignItems: "center", justifyContent: "center" }}>{item.id}</span>.{item.title}</div>
+            <div style={{ fontWeight: "bold" }}><TitleBody><span style={{ color: "blue", alignItems: "center", justifyContent: "center" }}>{item.id}</span>.{item.title}</TitleBody></div>
           </div>
           <ContetnBody>
             {item.content}
@@ -66,6 +66,14 @@ const ItemBody = styled.div`
   height: 90px;
   margin: auto;
 `;
+
+const TitleBody = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+`
 
 const ContetnBody = styled.div`
   overflow: hidden;

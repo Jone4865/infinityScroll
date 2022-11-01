@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Main from "./page/Main"
+import Main from "./page/Main.tsx"
 import Detail from "./page/Detail";
 
 const App = () => {
